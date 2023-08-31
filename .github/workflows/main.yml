@@ -20,7 +20,11 @@ jobs:
       - name: 💿 Install Requirements                             
         run: pip install -r requirements.txt
       - name: 🍳 Update dataset
-        run: python main.py
+        env:
+          apiKey: '${{secrets.APIKEY}}'
+          apiURLScript: '${{secrets.APIURLSCRIPT}}'
+          apiURLFile: '${{secrets.APIURLFILE}}'
+        run: bash main.py
       - name: 🚀 Commit and push if it changed
         run: |
           git config user.name "${GITHUB_ACTOR}"
