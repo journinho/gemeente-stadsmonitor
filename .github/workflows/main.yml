@@ -24,7 +24,7 @@ jobs:
           apiKey: '${{secrets.APIKEY}}'
           apiURLScript: '${{secrets.APIURLSCRIPT}}'
           apiURLFile: '${{secrets.APIURLFILE}}'
-        run: bash main.py
+        run: python main.py
       - name: 🚀 Commit and push if it changed
         run: |
           git config user.name "${GITHUB_ACTOR}"
